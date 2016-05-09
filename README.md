@@ -1,11 +1,13 @@
 # MarketStudy_Git
 
-#MarketStudy is an iOS application for use on the iPhone that gives users information about the housing and demographic 
-#characteristics of the area around a given address using data from the U.S. Census, and the ability to use this data to
-#calculate land value.arketStudy does not undertake any analysis aside from computing land value based on user inputs. 
-#The app only exists for convenience. Two scenarios for its use come to mind: if a developer is in the field and wants 
-#to do pencil out projections of whether or not a project will be profitable, and in a land purchase negotiation
-#where a developer quickly needs to adjust their pencil out model to accommodate for fluctuating land price offers.
+#Introduction
+
+MarketStudy is an iOS application for use on the iPhone that gives users information about the housing and demographic 
+characteristics of the area around a given address using data from the U.S. Census, and the ability to use this data to
+calculate land value.arketStudy does not undertake any analysis aside from computing land value based on user inputs. 
+The app only exists for convenience. Two scenarios for its use come to mind: if a developer is in the field and wants 
+to do pencil out projections of whether or not a project will be profitable, and in a land purchase negotiation
+where a developer quickly needs to adjust their pencil out model to accommodate for fluctuating land price offers.
 
 #Special thanks to:
 
