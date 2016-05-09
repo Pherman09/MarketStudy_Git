@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="grM-VR-kY5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map Places-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-mb-6rv">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HZT-mb-6rv" secondAttribute="bottom" id="IGC-jP-cxb"/>
+                            <constraint firstItem="HZT-mb-6rv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pi9-Vj-Smo"/>
+                            <constraint firstAttribute="trailing" secondItem="HZT-mb-6rv" secondAttribute="trailing" id="l8X-AO-UPA"/>
+                            <constraint firstItem="HZT-mb-6rv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nsK-Hx-Q8e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map Places" id="fDi-0k-QKp">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="PSm-wk-fjq" customClass="gotograph">
+                            <connections>
+                                <action selector="goToGraphPage:" destination="BYZ-38-t0r" id="eac-fN-Ff5"/>
+                                <segue destination="GpT-Gl-k9J" kind="show" id="2gM-kH-1Lx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="mB9-5o-kU7">
+                            <connections>
+                                <action selector="showSearchBar:" destination="BYZ-38-t0r" id="ATs-SC-opJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="HZT-mb-6rv" id="TWc-fO-WGr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="1125"/>
+        </scene>
+        <!--Population-->
+        <scene sceneID="fdb-b8-Ghx">
+            <objects>
+                <viewController id="yMz-qW-Ri5" customClass="LineGraphScene" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sLf-GS-LZ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="dx7-UZ-FUw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QxP-x4-Wgf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-qP-Bad" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="240" y="215" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M0N-qP-Bad" firstAttribute="leading" secondItem="QxP-x4-Wgf" secondAttribute="leadingMargin" id="9OU-eh-Wui"/>
+                            <constraint firstItem="M0N-qP-Bad" firstAttribute="top" secondItem="sLf-GS-LZ2" secondAttribute="bottom" id="Fhi-47-ZqM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M0N-qP-Bad" secondAttribute="trailing" id="LYJ-G0-rl9"/>
+                            <constraint firstItem="dx7-UZ-FUw" firstAttribute="top" secondItem="M0N-qP-Bad" secondAttribute="bottom" id="SH5-66-8HA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Population" id="HgE-4x-ZY5">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="gRo-XU-YZq">
+                            <connections>
+                                <action selector="saveChart:" destination="yMz-qW-Ri5" id="5Qu-l0-eas"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="linechartview" destination="M0N-qP-Bad" id="WLI-bS-Ixm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ON-5V-uNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="2082"/>
+        </scene>
+        <!--Renters vs Owners-->
+        <scene sceneID="khT-8b-a8p">
+            <objects>
+                <viewController id="VJp-Pw-Z66" customClass="RentersvsOwners" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NoJ-Qb-jn7"/>
+                        <viewControllerLayoutGuide type="bottom" id="xuc-5N-iD1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LXc-4h-NaD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0J-LR-l6K" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="52" y="179" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="S0J-LR-l6K" secondAttribute="trailing" id="ME9-Du-lMh"/>
+                            <constraint firstItem="S0J-LR-l6K" firstAttribute="top" secondItem="NoJ-Qb-jn7" secondAttribute="bottom" id="NLf-a3-JTM"/>
+                            <constraint firstItem="xuc-5N-iD1" firstAttribute="top" secondItem="S0J-LR-l6K" secondAttribute="bottom" id="UeZ-JH-FWS"/>
+                            <constraint firstItem="S0J-LR-l6K" firstAttribute="leading" secondItem="LXc-4h-NaD" secondAttribute="leadingMargin" id="h8k-Sa-ikY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Renters vs Owners" id="mwc-o9-qt6">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="6vH-K6-dW4">
+                            <connections>
+                                <action selector="saveChart:" destination="VJp-Pw-Z66" id="7Me-02-MwQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pieChartView" destination="S0J-LR-l6K" id="FQ1-XU-ovJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJK-xR-Uly" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="1292"/>
+        </scene>
+        <!--Median Income-->
+        <scene sceneID="MQW-El-9aV">
+            <objects>
+                <viewController id="UaK-Fi-vAU" customClass="MedianIncome" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Bf-Cz-UXW"/>
+                        <viewControllerLayoutGuide type="bottom" id="m3c-ar-olJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7BL-Pl-Vv5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yG-3M-Ddp" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="80" y="252" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5yG-3M-Ddp" secondAttribute="trailing" id="5lJ-dE-Qvq"/>
+                            <constraint firstItem="5yG-3M-Ddp" firstAttribute="top" secondItem="9Bf-Cz-UXW" secondAttribute="bottom" id="fXL-Lg-T1G"/>
+                            <constraint firstItem="m3c-ar-olJ" firstAttribute="top" secondItem="5yG-3M-Ddp" secondAttribute="bottom" id="gvh-9O-DDp"/>
+                            <constraint firstItem="5yG-3M-Ddp" firstAttribute="leading" secondItem="7BL-Pl-Vv5" secondAttribute="leadingMargin" id="uBC-YS-jMo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Median Income" id="z64-tc-mUd">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="camera" id="pUe-wh-Kt0">
+                            <connections>
+                                <action selector="saveChart:" destination="UaK-Fi-vAU" id="u8j-hT-cc0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="lineChartView" destination="5yG-3M-Ddp" id="253-jH-h0p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zYU-bZ-J2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572" y="1908"/>
+        </scene>
+        <!--Rent-->
+        <scene sceneID="UNh-Wb-6d1">
+            <objects>
+                <viewController id="0Wc-jL-3Hd" customClass="Rent" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jP1-1a-9wx"/>
+                        <viewControllerLayoutGuide type="bottom" id="PDx-fA-upy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="016-3c-eOY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8VE-5K-Ruq" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="49" y="264" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8VE-5K-Ruq" firstAttribute="leading" secondItem="016-3c-eOY" secondAttribute="leadingMargin" id="SPZ-lz-cqw"/>
+                            <constraint firstItem="8VE-5K-Ruq" firstAttribute="top" secondItem="jP1-1a-9wx" secondAttribute="bottom" id="im8-3G-5tq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8VE-5K-Ruq" secondAttribute="trailing" id="kD7-NS-DQ1"/>
+                            <constraint firstItem="PDx-fA-upy" firstAttribute="top" secondItem="8VE-5K-Ruq" secondAttribute="bottom" id="p04-by-2BJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rent" id="7LT-XO-3WH">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="k5n-99-eGA">
+                            <connections>
+                                <action selector="saveChart:" destination="0Wc-jL-3Hd" id="rfE-Kr-Fhp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="lineChartView" destination="8VE-5K-Ruq" id="Vqm-ul-Hdb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfS-AF-bkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="2799"/>
+        </scene>
+        <!--Vacancy-->
+        <scene sceneID="GIA-FG-rJL">
+            <objects>
+                <viewController id="tIT-1n-RiR" customClass="Vacancy" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J4P-tL-sZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="vDN-vn-h1S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="54Y-UX-7gg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F61-iK-7FL" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="43" y="255" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="F61-iK-7FL" secondAttribute="trailing" id="Spu-O6-6FN"/>
+                            <constraint firstItem="F61-iK-7FL" firstAttribute="top" secondItem="J4P-tL-sZb" secondAttribute="bottom" id="cIS-l6-W0b"/>
+                            <constraint firstItem="F61-iK-7FL" firstAttribute="leading" secondItem="54Y-UX-7gg" secondAttribute="leadingMargin" id="hhh-KX-WZY"/>
+                            <constraint firstItem="vDN-vn-h1S" firstAttribute="top" secondItem="F61-iK-7FL" secondAttribute="bottom" id="jck-9Q-hsQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Vacancy" id="TQQ-4A-kLv">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Czf-cd-c1k">
+                            <connections>
+                                <action selector="saveChart:" destination="tIT-1n-RiR" id="rAi-GZ-GFf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="lineChartView" destination="F61-iK-7FL" id="evo-HB-WZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vep-oW-vyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="-198"/>
+        </scene>
+        <!--Land Value Calculator-->
+        <scene sceneID="PO4-7T-jnb">
+            <objects>
+                <viewController id="vHQ-Kl-BVT" customClass="LandValueCalculator" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dsm-aV-ZTx"/>
+                        <viewControllerLayoutGuide type="bottom" id="pdQ-cp-8QS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hma-jz-ccZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Rent per Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDd-ax-xim">
+                                <rect key="frame" x="20" y="84" width="168" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwk-kj-Air">
+                                <rect key="frame" x="225" y="80" width="83" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expected Vacancy Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntQ-Yy-JO0">
+                                <rect key="frame" x="20" y="192" width="181" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0%" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yEr-cV-Jaf">
+                                <rect key="frame" x="224" y="188" width="83" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k9-Z1-Mkw">
+                                <rect key="frame" x="22" y="158" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The average rent is: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbS-Yp-nvK">
+                                <rect key="frame" x="20" y="118" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8aj-1P-MAC">
+                                <rect key="frame" x="225" y="154" width="83" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expected Cap Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmw-EY-JvB">
+                                <rect key="frame" x="20" y="306" width="147" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.058" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOo-bq-KR1">
+                                <rect key="frame" x="223" y="302" width="85" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expected Yearly Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAi-Ak-VDu">
+                                <rect key="frame" x="20" y="269" width="201" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c4u-qm-NMR">
+                                <rect key="frame" x="223" y="265" width="85" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Parcel Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1k-9t-2Zv">
+                                <rect key="frame" x="22" y="383" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 sqft" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCy-qw-xsB">
+                                <rect key="frame" x="225" y="378" width="83" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Construction Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNl-Jb-UQN">
+                                <rect key="frame" x="22" y="345" width="139" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZ6-Va-po5">
+                                <rect key="frame" x="225" y="340" width="83" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The vacancy rate is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNa-QO-NDG">
+                                <rect key="frame" x="20" y="234" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-lP-QA4">
+                                <rect key="frame" x="219" y="234" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkJ-Bo-qoI">
+                                <rect key="frame" x="202" y="371" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ard-gO-Zx8">
+                                <rect key="frame" x="22" y="421" width="107" height="44"/>
+                                <items>
+                                    <navigationItem id="22q-1L-LeY">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f8f-0e-Sqe">
+                                            <rect key="frame" x="22" y="7" width="64" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Calculate"/>
+                                            <connections>
+                                                <action selector="getLandPrice:" destination="vHQ-Kl-BVT" eventType="touchUpInside" id="64X-TW-K6m"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Land Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRE-es-a7n">
+                                <rect key="frame" x="165" y="432" width="136" height="22"/>
+                                <color key="backgroundColor" red="0.98753560460000001" green="0.93763732290000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="to1-Xu-tqu">
+                                <rect key="frame" x="224" y="118" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Land Value Calculator" id="OLa-KO-uwk"/>
+                    <connections>
+                        <outlet property="averageRen" destination="uwk-kj-Air" id="nrd-xg-Axj"/>
+                        <outlet property="averageRentLabel" destination="to1-Xu-tqu" id="kdQ-Pf-6N0"/>
+                        <outlet property="averageVacancyRateLabel" destination="0cP-lP-QA4" id="M2k-GJ-CEr"/>
+                        <outlet property="capRate" destination="FOo-bq-KR1" id="wFn-OY-PYF"/>
+                        <outlet property="constructionCost" destination="wZ6-Va-po5" id="ELg-av-QDN"/>
+                        <outlet property="expenses" destination="c4u-qm-NMR" id="eSq-gT-qFh"/>
+                        <outlet property="landPrice" destination="IRE-es-a7n" id="5GC-AF-ist"/>
+                        <outlet property="numOfUnits" destination="8aj-1P-MAC" id="c4u-Fe-PzW"/>
+                        <outlet property="parcelSize" destination="pCy-qw-xsB" id="qVK-YF-MdP"/>
+                        <outlet property="vacancyRate" destination="yEr-cV-Jaf" id="NeV-nA-6mL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcZ-TO-ILf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="564"/>
+        </scene>
+        <!--  -->
+        <scene sceneID="p1P-JL-iEQ">
+            <objects>
+                <viewController id="GpT-Gl-k9J" customClass="ViewControllerGraphPicker" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zPX-Fc-y24"/>
+                        <viewControllerLayoutGuide type="bottom" id="ian-fL-C5V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bG0-9K-zUz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tq4-IM-rrd">
+                                <rect key="frame" x="36" y="93" width="248" height="44"/>
+                                <items>
+                                    <navigationItem id="bsd-Gk-YZf">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eNu-dQ-VWs">
+                                            <rect key="frame" x="9" y="7" width="230" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Vacant vs Occupied"/>
+                                            <connections>
+                                                <segue destination="NdT-AV-f4t" kind="show" id="IQ8-mC-lA0"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2BS-ys-jQM">
+                                <rect key="frame" x="36" y="156" width="248" height="44"/>
+                                <items>
+                                    <navigationItem id="DF1-nv-PJM">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BZJ-DT-puX">
+                                            <rect key="frame" x="9" y="7" width="230" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Renters vs Owners"/>
+                                            <connections>
+                                                <segue destination="VJp-Pw-Z66" kind="show" id="Ia5-9l-Kdc"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oP-6K-wKy">
+                                <rect key="frame" x="36" y="217" width="248" height="44"/>
+                                <items>
+                                    <navigationItem id="GNQ-0F-5UC">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x2j-Gw-18x">
+                                            <rect key="frame" x="9" y="7" width="230" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Population"/>
+                                            <connections>
+                                                <segue destination="yMz-qW-Ri5" kind="show" id="are-fg-UGI"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxi-73-NCC">
+                                <rect key="frame" x="36" y="280" width="248" height="44"/>
+                                <items>
+                                    <navigationItem id="EFk-89-3dq">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EoN-tn-fVU">
+                                            <rect key="frame" x="9" y="7" width="230" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Rent"/>
+                                            <connections>
+                                                <segue destination="0Wc-jL-3Hd" kind="show" id="U6Z-zz-yop"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="va7-rz-PBe">
+                                <rect key="frame" x="36" y="340" width="248" height="44"/>
+                                <items>
+                                    <navigationItem id="gNa-cu-oNp">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gaO-tc-sik">
+                                            <rect key="frame" x="9" y="7" width="230" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Median Income"/>
+                                            <connections>
+                                                <segue destination="UaK-Fi-vAU" kind="show" id="OEM-fL-edS"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sN7-B0-4yb">
+                                <rect key="frame" x="36" y="403" width="248" height="44"/>
+                                <items>
+                                    <navigationItem id="RfC-jf-dyV">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YTC-h1-0gQ">
+                                            <rect key="frame" x="9" y="7" width="230" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Vacancy"/>
+                                            <connections>
+                                                <segue destination="tIT-1n-RiR" kind="show" id="aFR-2V-VLv"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="  " id="6sc-sH-Ah2">
+                        <barButtonItem key="rightBarButtonItem" title="Land Value Calculator" id="ns4-9s-Ad3">
+                            <connections>
+                                <segue destination="vHQ-Kl-BVT" kind="show" id="7Uq-bd-bRf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epR-Tn-WYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="1035"/>
+        </scene>
+        <!--Vacant vs Occupied-->
+        <scene sceneID="NNW-XS-sHW">
+            <objects>
+                <viewController id="NdT-AV-f4t" customClass="PopulationGraphScene" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cTf-26-cRy"/>
+                        <viewControllerLayoutGuide type="bottom" id="bcz-0t-LIz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oow-ZC-j0Z">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="el0-Pk-V7C" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="43" y="124" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bcz-0t-LIz" firstAttribute="top" secondItem="el0-Pk-V7C" secondAttribute="bottom" id="DOr-PY-Hv6"/>
+                            <constraint firstItem="el0-Pk-V7C" firstAttribute="leading" secondItem="oow-ZC-j0Z" secondAttribute="leadingMargin" id="DWe-9h-vEs"/>
+                            <constraint firstItem="el0-Pk-V7C" firstAttribute="leading" secondItem="oow-ZC-j0Z" secondAttribute="leadingMargin" id="JAL-fZ-esM"/>
+                            <constraint firstItem="el0-Pk-V7C" firstAttribute="top" secondItem="cTf-26-cRy" secondAttribute="bottom" id="jP3-OY-Nke"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="el0-Pk-V7C" secondAttribute="trailing" id="uCg-GF-QYd"/>
+                            <constraint firstItem="bcz-0t-LIz" firstAttribute="top" secondItem="el0-Pk-V7C" secondAttribute="bottom" id="zH8-QS-WcW"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Vacant vs Occupied" id="euv-3H-NoU">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="wWP-EM-yje">
+                            <connections>
+                                <action selector="saveChart:" destination="NdT-AV-f4t" id="hFq-SC-oUm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pieChartView" destination="el0-Pk-V7C" id="nlp-wY-r66"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFv-XK-5U3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="540"/>
+        </scene>
+        <!--Intro Scene-->
+        <scene sceneID="jED-ge-gOQ">
+            <objects>
+                <viewController id="grM-VR-kY5" customClass="introScene" customModule="MapLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0xK-3k-y2i"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gnw-uO-zAe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="56a-et-Eme">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-CQ-8GM">
+                                <rect key="frame" x="83" y="368" width="157" height="36"/>
+                                <color key="backgroundColor" red="0.97189202500000005" green="0.94803697060000003" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Get Started &gt;">
+                                    <color key="titleColor" red="0.96387588112484435" green="0.97001060771789249" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.97189202500424032" green="0.94803697055633662" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1uZ-7S-u0a" kind="show" id="dqR-4e-hvJ"/>
+                                </connections>
+                            </button>
+                            <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fj-0G-9rL">
+                                <rect key="frame" x="56" y="85" width="210" height="133"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Welcome to MarketStudy. Search your address on the next page, then press the action buton on the top left to look at demographics.</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="getStartedButton" destination="hSe-CQ-8GM" id="3cz-dW-guA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="anJ-As-Q2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1123" y="1153"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LSJ-CC-wef">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1uZ-7S-u0a" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7yh-e7-f2e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UMJ-6v-JRz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ua-Cx-Dmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-433" y="1153"/>
+        </scene>
+    </scenes>
+</document>
